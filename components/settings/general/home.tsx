@@ -241,7 +241,7 @@ const home: FC<props> = (props) => {
 
       <p className="text-lg font-medium text-zinc-900 dark:text-white mb-1">Workspace icon</p>
       <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3">
-        Shown in the sidebar, browser tab, and workspace switcher. Orbit stores a copy from when the workspace was created; refresh it if your Roblox group emblem changed.
+        Shown in the sidebar, browser tab, and workspace switcher. Nexora Management stores a copy from when the workspace was created; refresh it if your Roblox group emblem changed.
       </p>
       <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
         <div className="w-20 h-20 rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 overflow-hidden shrink-0">

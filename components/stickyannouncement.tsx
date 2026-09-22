@@ -24,7 +24,7 @@ interface Announcement {
 }
 
 const defaultAnnouncement: Announcement = {
-  title: "Planetary",
+  title: "Nexora Management",
   subtitle: `Update: v${packageinfo.version} is now live!`,
   sections: [
     {
@@ -45,7 +45,7 @@ const defaultAnnouncement: Announcement = {
     {
       title: "🎨 UI rework",
       content:
-        "We’ve reworked large parts of the UI with a cleaner, more modern feel. Go explore it — we think you’ll enjoy what the Planetary Team has been cooking up 👀",
+        "We’ve reworked large parts of the UI with a cleaner, more modern feel. Go explore it — we think you’ll enjoy what the Nexora Management team has been cooking up 👀",
     },
     {
       title: "🧑‍💻 User profile system overhaul",
@@ -175,7 +175,7 @@ export default function StickyNoteAnnouncement() {
     <div className="z-0 bg-white dark:bg-zinc-900/70 rounded-2xl shadow-[0_1px_3px_0_rgb(0,0,0,0.06),0_1px_2px_-1px_rgb(0,0,0,0.04)] dark:shadow-zinc-950/30 p-4 flex items-start space-x-4 mb-6 relative">
       <img
         src={workspace?.groupThumbnail || "/favicon.png"}
-        alt={workspace?.groupName || "Planetary"}
+        alt={workspace?.groupName || "Nexora Management"}
         className="w-10 h-10 rounded-full object-cover bg-zinc-100 dark:bg-zinc-800 flex-shrink-0"
       />
       <div className="flex-1">
@@ -306,7 +306,7 @@ export default function StickyNoteAnnouncement() {
                 <>
                   <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
                     That's a wrap for this week — we'll see you next Saturday
-                    for more updates from Team Planetary.
+                    for more updates from the Nexora Management team.
                   </p>
                   <p className="text-xs text-zinc-500 dark:text-zinc-400">
                     Read the full changelog

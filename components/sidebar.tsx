@@ -354,7 +354,7 @@ const Sidebar: NextPage<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
         <aside
           className={clsx(
             "h-full flex flex-col flex-1 min-w-0",
-            "bg-zinc-50 dark:bg-zinc-950"
+            "border-r border-zinc-200/80 bg-white/95 shadow-[8px_0_24px_-24px_rgba(24,24,27,0.45)] backdrop-blur-xl dark:border-zinc-800/80 dark:bg-zinc-950/95 dark:shadow-none"
           )}
         >
           <div className="flex flex-col h-full min-h-0 py-4 px-3 pb-4">
@@ -378,8 +378,8 @@ const Sidebar: NextPage<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
                 <div className="relative" ref={workspaceListboxWrapperRef}>
                   <Listbox.Button
                     className={clsx(
-                      "w-full flex items-center gap-3 rounded-2xl p-2.5 transition-colors duration-200 outline-none",
-                      "text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100/80 dark:hover:bg-zinc-800/60",
+                      "w-full flex items-center gap-3 rounded-2xl border border-zinc-200/80 bg-zinc-50/80 p-2.5 transition-colors duration-200 outline-none",
+                      "text-zinc-700 hover:border-zinc-300 hover:bg-zinc-100/80 dark:border-zinc-800 dark:bg-zinc-900/70 dark:text-zinc-200 dark:hover:border-zinc-700 dark:hover:bg-zinc-800/60",
                       isCollapsed && "justify-center p-2"
                     )}
                   >
@@ -461,7 +461,7 @@ const Sidebar: NextPage<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
                     className={clsx(
                       "w-full flex items-center gap-2.5 rounded-xl py-2 px-2.5 text-left outline-none select-none transition-all duration-150",
                       isActive
-                        ? "bg-[color:rgb(var(--group-theme)/0.08)] text-[color:rgb(var(--group-theme))] font-semibold"
+                        ? "relative bg-[color:rgb(var(--group-theme)/0.1)] text-[color:rgb(var(--group-theme))] font-semibold shadow-sm ring-1 ring-[color:rgb(var(--group-theme)/0.12)] before:absolute before:bottom-2 before:left-0 before:top-2 before:w-0.5 before:rounded-full before:bg-[color:rgb(var(--group-theme))]"
                         : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/50",
                       isCollapsed && "justify-center px-2 relative",
                     )}

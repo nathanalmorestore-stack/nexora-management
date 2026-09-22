@@ -17,7 +17,7 @@ export function HomeSection({
   return (
     <section className={clsx("", className)}>
       <div className="mb-3 flex items-center justify-between gap-3">
-        <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h2>
+        <h2 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500 dark:text-zinc-400">{title}</h2>
         {action}
       </div>
       {children}
@@ -41,12 +41,15 @@ export function HomePanel({
   return (
     <section
       className={clsx(
-        "flex min-h-[9rem] sm:min-h-[11rem] flex-col rounded-2xl bg-white shadow-[0_1px_3px_0_rgb(0,0,0,0.06),0_1px_2px_-1px_rgb(0,0,0,0.04)] dark:bg-zinc-900/70 dark:shadow-zinc-950/30",
+        "group flex min-h-[9rem] sm:min-h-[11rem] flex-col rounded-2xl border border-zinc-200/80 bg-white/90 shadow-[0_1px_3px_0_rgb(0,0,0,0.06),0_12px_30px_-24px_rgb(24,24,27,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-[0_12px_35px_-22px_rgb(var(--group-theme,236,72,153)/0.35)] dark:border-zinc-800/80 dark:bg-zinc-900/70 dark:shadow-zinc-950/30",
         className
       )}
     >
-      <div className="flex items-center justify-between gap-2 px-4 pb-2.5 pt-4">
-        <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h2>
+      <div className="flex items-center justify-between gap-2 border-b border-zinc-100/80 px-4 pb-3 pt-4 dark:border-zinc-800/80">
+        <div className="flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          <h2 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-500 dark:text-zinc-400">{title}</h2>
+        </div>
         {href ? <HomeTextLink href={href} label={linkLabel} /> : null}
       </div>
       <div className="flex flex-1 flex-col px-4 pb-4">{children}</div>

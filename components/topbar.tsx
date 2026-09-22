@@ -64,7 +64,6 @@ const Topbar: NextPage = () => {
   const [panel, setPanel] = useState<Panel>("settings");
   const [sessions, setSessions] = useState<Session[]>([]);
   const [sessionsLoading, setSessionsLoading] = useState(false);
-  const router = useRouter();
   const errorToastShown = useRef(false);
 
   const toggleTheme = () => {
@@ -165,10 +164,17 @@ const Topbar: NextPage = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800">
+      <header className="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/75 shadow-[0_8px_24px_-24px_rgba(24,24,27,0.7)] backdrop-blur-xl dark:border-zinc-800/80 dark:bg-zinc-950/75 dark:shadow-none">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link href="/"><img src="/planetary.svg" className="h-8 w-32" alt="Planetary" /></Link>
+            <Link
+              href="/"
+              className="flex items-center gap-2 text-lg font-bold tracking-tight text-primary"
+              aria-label="Nexora Management home"
+            >
+              <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_0_4px_rgb(var(--group-theme,236,72,153)/0.12)]" />
+              Nexora Management
+            </Link>
 
             <div className="flex items-center gap-2">
               <button

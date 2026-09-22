@@ -1,4 +1,4 @@
-import { AuthenticatedRequest, withAuth } from "@/lib/withAuth";
+import type { NextApiRequest } from "next";
 import type { NextApiResponse } from "next";
 import { getUsername, getDisplayName } from "@/utils/userinfoEngine";
 import { fetchAvatar } from "@/utils/avatar";
@@ -17,11 +17,19 @@ type Data = {
   debug?: any;
 };
 
-async function handler(req: AuthenticatedRequest, res: NextApiResponse<Data>) {
+async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   if (req.method !== "POST") {
     return res.status(405).json({
       success: false,
       error: "Method not allowed",
+    });
+  }
+
+  const userCount = await prisma.user.count();
+  if (userCount > 0) {
+    return res.status(403).json({
+      success: false,
+      error: "Workspace setup has already been completed",
     });
   }
 
@@ -327,4 +335,4 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse<Data>) {
   }
 }
 
-export default withAuth(handler);
+export default handler;

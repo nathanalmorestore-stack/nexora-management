@@ -36,7 +36,7 @@ const Guide: FC<props> = (props) => {
         </div>
         <div>
           <p className="text-sm font-medium text-zinc-900 dark:text-white">Verified Workspace</p>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">Showcase your verified workspace, if it is affiliated with Planetary Orbit.</p>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400">Showcase your verified workspace, if it is affiliated with Nexora Management.</p>
         </div>
       </div>
       <SwitchComponenet 

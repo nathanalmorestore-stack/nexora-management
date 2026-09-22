@@ -14,7 +14,7 @@ export function SessionsPageShell({
   className?: string;
 }) {
   return (
-    <div className="pagePadding pb-10">
+    <div className="pagePadding pb-10 pt-8 sm:pt-12">
       <div className={clsx("mx-auto w-full max-w-6xl", className)}>{children}</div>
     </div>
   );
@@ -42,15 +42,15 @@ export function SessionsPageHeader({
     });
 
   return (
-    <header className="mb-5 sm:mb-6">
-      <div className="flex flex-col gap-4 border-b border-zinc-200 pb-5 dark:border-zinc-800 sm:flex-row sm:items-end sm:justify-between">
+    <header className="mb-6 sm:mb-8">
+      <div className="flex flex-col gap-5 border-b border-zinc-200/80 pb-6 dark:border-zinc-800/80 sm:flex-row sm:items-end sm:justify-between">
         <div className="min-w-0">
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">{label}</p>
-          <h1 className="mt-0.5 text-xl font-semibold tracking-tight text-zinc-900 dark:text-white sm:text-2xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/80">{label}</p>
+          <h1 className="mt-1 text-2xl font-bold tracking-[-0.02em] text-zinc-950 dark:text-white sm:text-3xl">
             {title}
           </h1>
           {subtitle ? (
-            <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{subtitle}</p>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-500 dark:text-zinc-400">{subtitle}</p>
           ) : null}
           {workspaceLabel ? (
             <p className="mt-0.5 text-xs text-zinc-400 dark:text-zinc-500">{workspaceLabel}</p>
@@ -75,7 +75,7 @@ export function SessionsPanel({
     <div
       onClick={onClick}
       className={clsx(
-        "rounded-2xl bg-white dark:bg-zinc-900/70",
+        "rounded-2xl border border-zinc-200/80 bg-white/90 dark:border-zinc-800/80 dark:bg-zinc-900/70",
         sessionsPanelShadow,
         className
       )}
@@ -163,7 +163,7 @@ export function SessionFormInset({
   return (
     <div
       className={clsx(
-        "rounded-xl bg-zinc-50/80 p-4 dark:bg-zinc-800/40",
+        "rounded-2xl border border-zinc-200/70 bg-white/70 p-4 shadow-sm dark:border-zinc-800/70 dark:bg-zinc-900/50",
         className
       )}
     >

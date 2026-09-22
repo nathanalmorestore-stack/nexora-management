@@ -1,6 +1,6 @@
 {
-  "name": "Orbit Dashboard",
-  "short_name": "Orbit",
+  "name": "Nexora Management",
+  "short_name": "Nexora",
   "description": "The ultimate Roblox management tool.",
   "start_url": "/",
   "display": "standalone",

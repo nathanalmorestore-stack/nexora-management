@@ -14,7 +14,7 @@ export function ProfilePageShell({
   className?: string;
 }) {
   return (
-    <div className="pagePadding pb-10">
+    <div className="pagePadding pb-10 pt-8 sm:pt-12">
       <div className={clsx("mx-auto w-full max-w-7xl", className)}>{children}</div>
     </div>
   );
@@ -30,7 +30,7 @@ export function ProfilePanel({
   return (
     <div
       className={clsx(
-        "rounded-2xl bg-white dark:bg-zinc-900/70",
+        "rounded-2xl border border-zinc-200/80 bg-white/90 dark:border-zinc-800/80 dark:bg-zinc-900/70",
         profilePanelShadow,
         className
       )}
@@ -73,14 +73,17 @@ export function ProfileStatCard({
   description: string;
 }) {
   return (
-    <div className="rounded-xl bg-zinc-50/80 p-5 dark:bg-zinc-800/40">
+    <div className="rounded-2xl border border-zinc-200/80 bg-white/70 p-5 shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900/50">
       <div className="mb-4 flex items-center gap-2.5">
-        <div className="rounded-lg bg-primary/10 p-1.5">
+        <div className="flex items-center gap-2.5">
+        <div className="rounded-xl bg-primary/10 p-2">
           <Icon className="h-4 w-4 text-primary" stroke={1.75} />
         </div>
         <p className="text-[11px] font-medium uppercase tracking-wide text-zinc-400">
           {label}
         </p>
+        </div>
+        <span className="h-1.5 w-1.5 rounded-full bg-primary/60" />
       </div>
       <div className="text-3xl font-bold tabular-nums text-zinc-900 dark:text-white">
         {value}

@@ -202,7 +202,7 @@ const Login: NextPage = () => {
     <div className={`min-h-screen bg-no-repeat bg-cover bg-center flex flex-col bg-orbit`}>
       <div className="hidden sm:block absolute top-4 left-4 pointer-events-none">
         <p className="text-white sm:text-3xl md:text-5xl font-extrabold leading-tight">
-          👋 Welcome <br /> to <span style={{ color: selectedColor }}>Orbit</span>
+          👋 Welcome <br /> to <span style={{ color: selectedColor }}>Nexora Management</span>
         </p>
       </div>
 
@@ -215,7 +215,7 @@ const Login: NextPage = () => {
                 Let&apos;s get started
               </p>
               <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                To configure your Orbit instance, we&apos;ll need some information
+                To configure your Nexora Management instance, we&apos;ll need some information
               </p>
               <FormProvider {...methods}>
                 <form className="mt-4" onSubmit={handleSubmit(nextSlide)}>
@@ -356,7 +356,7 @@ const Login: NextPage = () => {
               <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-amber-200 bg-amber-50 px-3.5 py-3 dark:border-amber-500/30 dark:bg-amber-500/10">
                 <IconInfoCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-500 dark:text-amber-400" stroke={2} />
                 <p className="text-xs leading-relaxed text-amber-700 dark:text-amber-300">
-                  <b>Recommended:</b> An API key unlocks deeper Roblox group features in Orbit. You can skip this and configure it later in Settings.
+                  <b>Recommended:</b> An API key unlocks deeper Roblox group features in Nexora Management. You can skip this and configure it later in Settings.
                 </p>
               </div>
 
@@ -385,11 +385,11 @@ const Login: NextPage = () => {
               <div>
                 <StepIndicator step={3} color={selectedColor} />
                 <p className="text-2xl font-bold text-zinc-900 dark:text-white">
-                  Make your Orbit account
+                  Make your Nexora Management account
                 </p>
 
                 <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                  You need to create an Orbit account to continue
+                  You need to create a Nexora Management account to continue
                 </p>
 
                 <FormProvider {...signupform}>
@@ -505,7 +505,7 @@ const Login: NextPage = () => {
         </div>
 
         <p className="text-[11px] text-white/60">
-          Orbit v{packageinfo.version}
+          Nexora Management v{packageinfo.version}
         </p>
       </footer>
     </div>

@@ -4,7 +4,7 @@ import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import React, { useEffect, useState, useRef } from "react";
 import { useRecoilState } from "recoil";
 import { loginState } from "@/state";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import axios from "axios";
 import Input from "@/components/input";
 import Link from "next/link";
@@ -120,6 +120,7 @@ function getAvatarBgColor(displayName: string): string {
 }
 
 const Login: NextPage = () => {
+  const router = useRouter();
   const [login, setLogin] = useRecoilState(loginState);
   const { isAvailable: isRobloxOAuth } = RobloxOAuthAvailable();
 
@@ -201,7 +202,6 @@ const Login: NextPage = () => {
       try {
         const userInfo = await axios.get("/api/@me");
         if (isMounted && userInfo.status === 200) {
-const router = useRouter();
         }
       } catch (error) {
         console.log("User not authenticated");
@@ -379,7 +379,7 @@ router.push("/");
     const { error, action, ...rest } = router.query;
     if (error) {
       if (error === "discord-not-linked")
-        toast.error("This account isn't linked to any Orbit account.");
+        toast.error("This account isn't linked to any Nexora Management account.");
       else if (error === "google-not-linked")
         toast.error("Your Google account is not linked.");
       else if (error === "state-mismatch")
@@ -464,7 +464,7 @@ router.push("/");
   return (
     <>
       <Head>
-        <title>Sign in · Orbit</title>
+        <title>Sign in · Nexora Management</title>
       </Head>
 
       <div className="relative min-h-screen overflow-hidden bg-zinc-50 dark:bg-zinc-950">
@@ -491,7 +491,7 @@ router.push("/");
                 Account
               </p>
               <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
-                Welcome to <span className="text-primary">Orbit</span>
+                Welcome to <span className="text-primary">Nexora Management</span>
               </h1>
               <p className="mt-3 max-w-sm text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
                 Sign in or create an account to access your workspaces.

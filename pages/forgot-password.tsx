@@ -389,6 +389,9 @@ const ForgotPassword: NextPage = () => {
 								<p className="text-sm text-zinc-500 dark:text-zinc-400">
 									Copyright © 2026 Planetary. All rights reserved.
 								</p>
+								<p className="text-sm text-zinc-500 dark:text-zinc-400">
+									Nexora Management by Nexora Development Corporation
+								</p>
 							</div>
 
 							<div>

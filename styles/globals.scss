@@ -7,6 +7,9 @@
     --font-sans: var(--font-sans), sans-serif;
     --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
       Consolas, "Liberation Mono", "Courier New", monospace;
+    --surface-page: #f7f8fa;
+    --surface-panel: rgba(255, 255, 255, 0.92);
+    --border-subtle: rgba(228, 228, 231, 0.82);
 
     color-scheme: light;
     text-rendering: optimizeLegibility;
@@ -24,6 +27,9 @@
 
   html.dark {
     color-scheme: dark;
+    --surface-page: #0b0c0f;
+    --surface-panel: rgba(24, 24, 27, 0.78);
+    --border-subtle: rgba(63, 63, 70, 0.72);
   }
 
   body {
@@ -32,7 +38,7 @@
     padding: 0;
     overflow-x: hidden;
 
-    background-color: #fff;
+    background-color: var(--surface-page);
     color: #18181b;
 
     font-family: var(--font-sans);
@@ -41,8 +47,12 @@
   }
 
   .dark body {
-    background-color: #18181b;
+    background-color: var(--surface-page);
     color: #f4f4f5;
+  }
+
+  ::selection {
+    background: rgb(var(--group-theme, 236, 72, 153) / 0.22);
   }
 
   *,
@@ -131,7 +141,26 @@
   }
 
   .pagePadding {
-    @apply px-4 py-6 sm:px-10 sm:py-10 md:px-20 md:py-12 lg:px-32 lg:py-16 2xl:px-48;
+    @apply px-4 py-6 sm:px-8 sm:py-10 md:px-12 md:py-12 lg:px-20 lg:py-14 2xl:px-32;
+  }
+
+  .workspace-surface {
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--group-theme, 236, 72, 153) / 0.045),
+      transparent 34%
+    ), linear-gradient(rgba(161, 161, 170, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(161, 161, 170, 0.045) 1px, transparent 1px);
+    background-size: auto, 28px 28px, 28px 28px;
+  }
+
+  .dark .workspace-surface {
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--group-theme, 236, 72, 153) / 0.08),
+      transparent 36%
+    ), linear-gradient(rgba(161, 161, 170, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(161, 161, 170, 0.035) 1px, transparent 1px);
   }
 }
 

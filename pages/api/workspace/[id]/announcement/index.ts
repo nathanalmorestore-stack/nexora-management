@@ -59,7 +59,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse<Data>) {
     });
 
     const defaultAnnouncement = {
-  title: "Planetary",
+  title: "Nexora Management",
   subtitle: `Update: v${packageinfo.version} is now live!`,
   sections: [
     {
@@ -80,7 +80,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse<Data>) {
     {
       title: "🎨 UI rework",
       content:
-        "We’ve reworked large parts of the UI with a cleaner, more modern feel. Go explore it — we think you’ll enjoy what the Planetary Team has been cooking up 👀",
+        "We’ve reworked large parts of the UI with a cleaner, more modern feel. Go explore it — we think you’ll enjoy what the Nexora Management team has been cooking up 👀",
     },
     {
       title: "🧑‍💻 User profile system overhaul",
@@ -98,19 +98,34 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse<Data>) {
   isDefault: true,
 };
 
+    const storedAnnouncement = announcement
+      ? {
+          ...announcement,
+          title:
+            announcement.title === "Planetary"
+              ? "Nexora Management"
+              : announcement.title,
+          sections:
+            (typeof announcement.sections === "string"
+              ? JSON.parse(announcement.sections)
+              : announcement.sections
+            )?.map((section: { title?: string; content?: string }) => ({
+              ...section,
+              content: section.content?.replace(
+                /Planetary Team/g,
+                "Nexora Management team",
+              ),
+            })),
+          editorId: announcement.editorId
+            ? announcement.editorId.toString()
+            : null,
+          isDefault: false,
+        }
+      : null;
+
     return res.status(200).json({
       success: true,
-      announcement: announcement
-        ? {
-            ...announcement,
-            editorId: announcement.editorId ? announcement.editorId.toString() : null,
-            sections:
-              typeof announcement.sections === "string"
-                ? JSON.parse(announcement.sections)
-                : announcement.sections,
-            isDefault: false,
-          }
-        : defaultAnnouncement,
+      announcement: storedAnnouncement ?? defaultAnnouncement,
       canEdit,
     });
   } catch (error) {

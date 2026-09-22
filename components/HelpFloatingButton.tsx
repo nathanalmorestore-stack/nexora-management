@@ -180,7 +180,7 @@ export function HelpProvider({ children }: { children: React.ReactNode }) {
           return;
         }
 
-        console.error("[HELP] Failed to fetch Orbit version:", error);
+        console.error("[HELP] Failed to fetch Nexora Management version:", error);
       } finally {
         if (!controller.signal.aborted) {
           setVersionLoading(false);
@@ -323,6 +323,22 @@ export function HelpProvider({ children }: { children: React.ReactNode }) {
                   project retain their original copyright notices.
                 </p>
               </section>
+
+              <section
+                aria-labelledby="nexora-license-title"
+                className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4"
+              >
+                <h3
+                  id="nexora-license-title"
+                  className="text-sm font-semibold text-zinc-900 dark:text-white"
+                >
+                  Nexora Management
+                </h3>
+
+                <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
+                  Nexora Management by Nexora Development Corporation
+                </p>
+              </section>
             </div>
 
             <p className="mt-5 text-xs leading-relaxed text-zinc-400 dark:text-zinc-500">
@@ -362,7 +378,7 @@ export function HelpProvider({ children }: { children: React.ReactNode }) {
                 </Dialog.Title>
 
                 <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
-                  Recent Orbit releases
+                  Recent Nexora Management releases
                 </p>
               </div>
 
@@ -556,7 +572,7 @@ export function HelpFloatingButton() {
       >
         <div className="px-4 pb-2.5 pt-0.5">
           <p className="text-xs font-semibold tracking-tight text-zinc-900 dark:text-white">
-            Orbit
+            Nexora Management
           </p>
 
           <p

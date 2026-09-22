@@ -110,7 +110,7 @@ function ConsoleBanner() {
     };
 
     console.info(
-      "%cOrbit %c— The All In One Staff Management Solution",
+      "%cNexora Management %c— The All In One Staff Management Solution",
       styles.logo,
       styles.title,
     );
@@ -179,14 +179,14 @@ function Orbit({ Component, pageProps }: AppPropsWithLayout) {
         disableTransitionOnChange
       >
         <Head>
-          <title>Orbit</title>
+          <title>Nexora Management</title>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
           <meta
             name="description"
-            content="Orbit — The all-in-one staff management solution."
+            content="Nexora Management — The all-in-one staff management solution."
           />
         </Head>
 

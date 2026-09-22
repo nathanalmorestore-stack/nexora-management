@@ -491,7 +491,7 @@ const ExternalServicesImpl: FC<ExternalServicesProps> = ({
         {showRankLimit && (
           <div className="border-t border-zinc-100 pt-3 dark:border-zinc-800/80">
             <label className="mb-1.5 block text-xs font-medium text-zinc-500 dark:text-zinc-400">
-              Highest rank Orbit may promote to
+                  Highest rank Nexora Management may promote to
             </label>
             <input
               type="number"

@@ -7,7 +7,7 @@ import randomText from "@/utils/randomText"
 import { useRecoilState } from "recoil"
 import { useMemo, useEffect, useState } from "react"
 import { useRouter } from "next/router"
-import { IconLayoutDashboard, IconWall, IconBell, IconUsers, IconArrowRight } from "@tabler/icons-react"
+import { IconLayoutDashboard, IconWall, IconBell, IconUsers, IconArrowRight, IconActivity, IconShieldCheck, IconGridDots } from "@tabler/icons-react"
 import { withPermissionCheckSsr } from "@/utils/permissionsManager"
 import { GetServerSideProps } from "next"
 import { HomeDashboard } from "@/components/home/dashboard"
@@ -92,7 +92,7 @@ const Home: pageWithLayout = () => {
   })
 
   return (
-    <div className="pagePadding">
+    <div className="pagePadding pt-7 sm:pt-10">
       <div className="mx-auto max-w-6xl">
         {(showWarn && !syncWarnDismissed) && (
           <div className="mb-5 flex flex-col gap-3 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 dark:border-zinc-700 dark:bg-zinc-900/60 sm:flex-row sm:items-center sm:justify-between">
@@ -119,9 +119,9 @@ const Home: pageWithLayout = () => {
           </div>
         )}
 
-        <header className="mb-5 sm:mb-6">
+        <header className="mb-6 sm:mb-7">
           {banner ? (
-            <div className="relative overflow-hidden rounded-2xl">
+            <div className="relative overflow-hidden rounded-3xl border border-zinc-200/70 shadow-sm dark:border-zinc-800/80">
               <div className="relative h-32 sm:h-36 md:h-44">
                 <img src={banner} alt="" className="h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/85 via-zinc-950/50 to-zinc-950/20" />
@@ -135,7 +135,7 @@ const Home: pageWithLayout = () => {
               </div>
             </div>
           ) : (
-            <div className="flex items-start justify-between gap-4 border-b border-zinc-200 pb-5 dark:border-zinc-800">
+            <div className="flex items-start justify-between gap-4 border-b border-zinc-200/80 pb-6 dark:border-zinc-800/80">
               <div className="min-w-0">
                 <p className="text-xs text-zinc-500 dark:text-zinc-400">{dateLabel}</p>
                 <h1 className="mt-0.5 text-xl font-semibold tracking-tight text-zinc-900 dark:text-white sm:text-2xl md:text-3xl">
@@ -153,6 +153,45 @@ const Home: pageWithLayout = () => {
             </div>
           )}
         </header>
+
+        <section className="mb-7 grid grid-cols-1 gap-3 sm:grid-cols-3" aria-label="Workspace overview">
+          {[
+            {
+              label: "Workspace status",
+              value: showWarn ? "Needs attention" : "All systems ready",
+              detail: showWarn ? "Review Roblox sync settings" : "Roblox data is up to date",
+              icon: showWarn ? IconActivity : IconShieldCheck,
+              tone: showWarn ? "text-amber-500 bg-amber-500/10" : "text-emerald-500 bg-emerald-500/10",
+            },
+            {
+              label: "Your access",
+              value: workspaceMembership?.isAdmin ? "Administrator" : "Team member",
+              detail: workspaceMembership?.isAdmin ? "Full workspace control" : "Member permissions apply",
+              icon: IconShieldCheck,
+              tone: "text-primary bg-primary/10",
+            },
+            {
+              label: "Active modules",
+              value: `${orderedWidgets.length} enabled`,
+              detail: "Configured on your home dashboard",
+              icon: IconGridDots,
+              tone: "text-sky-500 bg-sky-500/10",
+            },
+          ].map(({ label, value, detail, icon: Icon, tone }) => (
+            <div key={label} className="rounded-2xl border border-zinc-200/80 bg-white/80 p-4 shadow-sm dark:border-zinc-800/80 dark:bg-zinc-900/60">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-400 dark:text-zinc-500">{label}</p>
+                  <p className="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">{value}</p>
+                  <p className="mt-1 text-xs text-zinc-400 dark:text-zinc-500">{detail}</p>
+                </div>
+                <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${tone}`}>
+                  <Icon className="h-4 w-4" stroke={1.8} />
+                </span>
+              </div>
+            </div>
+          ))}
+        </section>
 
         {!ready ? (
           <div className="flex items-center gap-3 py-20 text-sm text-zinc-500 dark:text-zinc-400">

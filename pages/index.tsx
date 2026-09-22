@@ -462,10 +462,10 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Orbit - Workspaces</title>
+        <title>Nexora Management - Workspaces</title>
         <meta
           name="description"
-          content="Manage your Roblox workspaces with Orbit"
+          content="Manage your Roblox workspaces with Nexora Management"
         />
       </Head>
 
@@ -1157,7 +1157,7 @@ const Home: NextPage = () => {
                                 Hi {login.displayname}! 👋
                               </Dialog.Title>
                               <p className="text-zinc-500 dark:text-zinc-400 mt-1 text-xs">
-                                Welcome to Orbit. Here's a quick look at what
+                                Welcome to Nexora Management. Here's a quick look at what
                                 you can do.
                               </p>
                             </div>

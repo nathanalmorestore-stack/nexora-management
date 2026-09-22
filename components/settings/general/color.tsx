@@ -554,7 +554,7 @@ const Color: FC<props> = ({ triggerToast, isSidebarExpanded }) => {
 
 function getColorDisplayName(color: string): string {
   const colorDisplayMap: Record<string, string> = {
-    "bg-orbit": "Orbit",
+    "bg-orbit": "Nexora Management",
     "bg-blue-500": "Blue",
     "bg-red-500": "Red",
     "bg-red-700": "Dark Red",

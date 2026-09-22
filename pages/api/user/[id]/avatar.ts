@@ -93,10 +93,19 @@ async function fetchFallbackRobloxAvatarBuffer(targetResolution: number): Promis
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id, color, res: resParam } = req.query;
 
-  if (!id || Array.isArray(id)) return res.status(400).end('Invalid userId');
-  if (!/^[0-9]+$/.test(id)) return res.status(400).end('Invalid userId');
+  if (!id || Array.isArray(id)) {
+    res.status(400).end('Invalid userId');
+    return;
+  }
+  if (!/^[0-9]+$/.test(id)) {
+    res.status(400).end('Invalid userId');
+    return;
+  }
   const userIdNum = Number(id);
-  if (!Number.isInteger(userIdNum) || userIdNum <= 0) return res.status(400).end('Invalid userId');
+  if (!Number.isInteger(userIdNum) || userIdNum <= 0) {
+    res.status(400).end('Invalid userId');
+    return;
+  }
 
   let resolution = 180;
   if (resParam && !Array.isArray(resParam)) {
@@ -104,7 +113,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (Number.isInteger(parsed) && parsed >= 48 && parsed <= 2048) {
       resolution = parsed;
     } else {
-      return res.status(400).end('Invalid resolution (must be 48-2048)');
+      res.status(400).end('Invalid resolution (must be 48-2048)');
+      return;
     }
   }
 
@@ -130,7 +140,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } else if (/^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.test(colorLower)) {
       bgColor = colorLower.startsWith('#') ? colorLower : `#${colorLower}`;
     } else {
-      return res.status(400).end('Invalid color (use a preset name or a hex like #fff or #aabbcc)');
+      res.status(400).end('Invalid color (use a preset name or a hex like #fff or #aabbcc)');
+      return;
     }
   }
 
@@ -140,7 +151,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const resolved = path.resolve(avatarPath);
 
   if (!resolved.startsWith(path.resolve(avatarDir) + path.sep)) {
-    return res.status(400).end('Invalid userId');
+    res.status(400).end('Invalid userId');
+    return;
   }
 
   const cacheKey = `${userIdNum}_${resolution}_${bgColor || 'none'}`;
@@ -150,7 +162,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (mem) {
       if (isNotModified(req, mem)) {
         setCommonHeaders(res, mem);
-        return res.status(304).end();
+        res.status(304).end();
+        return;
       }
       setCommonHeaders(res, mem);
       res.setHeader('Content-Length', mem.buffer.length.toString());
@@ -200,7 +213,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (isNotModified(req, entry)) {
       setCommonHeaders(res, entry);
-      return res.status(304).end();
+      res.status(304).end();
+      return;
     }
 
     setCommonHeaders(res, entry);
